@@ -127,6 +127,6 @@ jobs:
       - name: Upload coverage report
         if: success() && matrix.platform == 'x64'
         run: |
-          curl -Os https://uploader.codecov.io/latest/windows/codecov
-          chmod +x codecov
-          ./codecov -g
+          curl -Os https://uploader.codecov.io/latest/windows/codecov.exe
+          chmod +x codecov.exe
+          ./codecov.exe -g
