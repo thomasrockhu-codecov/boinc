@@ -118,8 +118,12 @@ jobs:
           path: android/BOINC/app/build/test-results/testDebugUnitTest/TEST-*.xml
 
       - name: Upload coverage report
-        uses: codecov/codecov-action@v2
         if: ${{ success() && matrix.type == 'manager' }}
+        run: |
+          curl -Os https://uploader.codecov.io/latest/linux/codecov
+          chmod +x codecov
+          ./codecov -g
+
         with:
           fail_ci_if_error: true
           verbose: false
