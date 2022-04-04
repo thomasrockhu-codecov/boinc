@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        type: [libs, client, apps, libs-vcpkg, client-vcpkg, apps-vcpkg, server, manager-with-webview, manager-without-webview, unit-test, integration-test]
+        type: [unit-test]
       fail-fast: false
     steps:
       - uses: actions/checkout@v2
@@ -141,9 +141,8 @@ jobs:
           name: Linux_tests_results
           path: "tests/gtest/**/*_xml_report.xml"
 
-      - name: Run GCov
-        if: success() && matrix.type == 'unit-test'
-        run: bash -c "find . -type f -name '*.gcno' -exec gcov -pb {} +" || true
+      - name: ls -al
+        run: ls -al
 
       - name: Upload coverage report
         if: success() && matrix.type == 'unit-test'

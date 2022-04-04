@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        type: [manager, libs, apps, manager-vcpkg, libs-vcpkg, apps-vcpkg]
+        type: [manager]
       fail-fast: false
     steps:
       - uses: actions/checkout@v2
@@ -122,4 +122,4 @@ jobs:
         run: |
           curl -Os https://uploader.codecov.io/latest/linux/codecov
           chmod +x codecov
-          ./codecov -g
+          ./codecov

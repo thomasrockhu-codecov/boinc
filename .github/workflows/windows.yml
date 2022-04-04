@@ -18,7 +18,7 @@ jobs:
     runs-on: windows-2019
     strategy:
       matrix:
-        platform: [x64, ARM64]
+        platform: [x64]
         configuration: [Release]
       fail-fast: false
     steps:
@@ -129,4 +129,4 @@ jobs:
         run: |
           curl -Os https://uploader.codecov.io/latest/windows/codecov.exe
           chmod +x codecov.exe
-          ./codecov.exe -g
+          ./codecov.exe
