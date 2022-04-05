@@ -146,4 +146,5 @@ jobs:
         if: success() && matrix.type == 'unit-test'
         with:
           fail_ci_if_error: true
+          gcov: true
           verbose: false
