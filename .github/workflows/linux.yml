@@ -141,12 +141,9 @@ jobs:
           name: Linux_tests_results
           path: "tests/gtest/**/*_xml_report.xml"
 
-      - name: ls -al
-        run: ls -al
-
       - name: Upload coverage report
+        uses: codecov/codecov-action@v3
         if: success() && matrix.type == 'unit-test'
-        run: |
-          curl -Os https://uploader.codecov.io/latest/linux/codecov
-          chmod +x codecov
-          ./codecov -g
+        with:
+          fail_ci_if_error: true
+          verbose: false
